@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "47605997799",
+    "firebase_url": "https://petshelper-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "petshelper",
+    "storage_bucket": "petshelper.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47605997799:android:1e79b6570c30c44668c242",
+        "android_client_info": {
+          "package_name": "com.example.ictis"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj07x7o-c4_NrHm-zF73HU_f0rvuyQaJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47605997799:android:9688711816b0d87668c242",
+        "android_client_info": {
+          "package_name": "com.example.mypethelper"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj07x7o-c4_NrHm-zF73HU_f0rvuyQaJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
