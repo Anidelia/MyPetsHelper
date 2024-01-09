@@ -58,8 +58,11 @@ class FirebaseAPI {
                     FirebaseDatabase.getInstance().getReference("Users").child(count.toString())
                         .child("Surname").setValue(surname)
                     val filenameA = "ava" + (1..5).random() + ".jpg"
+                    val filenameF = "fon" + (1..5).random() + ".jpg"
                     FirebaseDatabase.getInstance().getReference("Users").child(count.toString())
                         .child("Photo").child("Avatarka").setValue(filenameA)
+                    FirebaseDatabase.getInstance().getReference("Users").child(count.toString())
+                        .child("Photo").child("Fon").setValue(filenameF)
                     completion(count)
                 }
 
@@ -69,6 +72,11 @@ class FirebaseAPI {
                 }
             })
     }
-
+    fun getPicLogo(url: String, completion: (String) -> Unit) {
+        FirebaseStorage.getInstance().reference.child("$url").downloadUrl.addOnSuccessListener { uri ->
+            val imageUrl = uri.toString()
+            completion(imageUrl)
+        }
+    }
 
 }

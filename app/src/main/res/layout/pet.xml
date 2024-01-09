@@ -23,13 +23,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/textImage"
-                android:layout_width="match_parent"
-                android:layout_height="149dp"
-                app:srcCompat="@drawable/rec21"
-                android:scaleType="centerCrop"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -39,9 +32,10 @@
                     android:id="@+id/textTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:text="Уход за шерстью кошек"
+                    android:text="Мася"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 
@@ -53,17 +47,23 @@
                     android:background="@color/mainBlue" />
 
                 <TextView
-                    android:id="@+id/textCardText"
+                    android:id="@+id/textVid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="Вид:" />
+                <TextView
+                    android:id="@+id/tt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="15dp"
-                    android:text="Шерсть кошек – природный индикатор состояния их здоровья." />
+                    android:text="Возраст:" />
 
             </LinearLayout>
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 </androidx.cardview.widget.CardView>

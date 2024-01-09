@@ -1,11 +1,13 @@
-package com.example.mypethelper
+package com.example.mypethelper.Parsers
 
+import com.example.mypethelper.DataClasses.Article
 import com.google.firebase.database.DataSnapshot
 
 
 class ParserArticles {
 
-    fun parsPalce(dataSnapshot: DataSnapshot): Article {
+    fun parsArticles(dataSnapshot: DataSnapshot): Article {
+
         val article = Article(
             cardText = dataSnapshot.child("cardText").value.toString(),
             title = dataSnapshot.child("title").value.toString(),
@@ -16,7 +18,7 @@ class ParserArticles {
         return article
     }
 
-    fun parsPalces(dataSnapshot: MutableList<DataSnapshot>): MutableList<Article> {
+    fun parsArticles(dataSnapshot: MutableList<DataSnapshot>): MutableList<Article> {
         var articles = mutableListOf<Article>()
         dataSnapshot.forEach { it ->
 

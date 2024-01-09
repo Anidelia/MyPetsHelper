@@ -5,14 +5,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.mypethelper.databinding.ActivityAufBinding
+import com.example.mypethelper.databinding.ActivityStartpageBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class Auf : AppCompatActivity() {
+class StartPage : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    private lateinit var bind: ActivityAufBinding
+    private lateinit var bind: ActivityStartpageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
 
         auth = Firebase.auth
@@ -36,15 +36,15 @@ class Auf : AppCompatActivity() {
                 }
             }
         super.onCreate(savedInstanceState)
-        bind = ActivityAufBinding.inflate(layoutInflater)
+        bind = ActivityStartpageBinding.inflate(layoutInflater)
 
 
         setContentView(bind.root)
         bind.buttonLogIn.setOnClickListener {
-            startActivity(Intent(this@Auf, LogIn::class.java))
+            startActivity(Intent(this@StartPage, LogIn::class.java))
         }
         bind.buttonReg.setOnClickListener {
-            startActivity(Intent(this@Auf, RegAct::class.java))
+            startActivity(Intent(this@StartPage, RegAct::class.java))
         }
     }
 }

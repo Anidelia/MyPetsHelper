@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Auf"
-    android:background="@drawable/bg_log_reg">
+    tools:context=".StartPage"
+    android:background="@drawable/start_page_bg">
 
     <ImageView
         android:id="@+id/imageView2"

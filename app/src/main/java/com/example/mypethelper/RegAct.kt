@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
-import com.example.mypethelper.ui.home.HomeFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -73,7 +72,7 @@ class RegAct : AppCompatActivity() {
 
                         Toast.makeText(baseContext, "Authentication Success.",
                             Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this@RegAct, HomeFragment::class.java))
+                        startActivity(Intent(this@RegAct, MainActivity::class.java))
 
                     } else {
                         // If sign in fails, display a message to the user.

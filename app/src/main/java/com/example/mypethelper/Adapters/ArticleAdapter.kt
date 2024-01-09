@@ -1,4 +1,4 @@
-package com.example.mypethelper
+package com.example.mypethelper.Adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,21 +6,30 @@ import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mypethelper.DataClasses.Article
+import com.example.mypethelper.R
 import com.example.mypethelper.databinding.ArticleBinding
+import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 
 
 class ArticleAdapter(val listener: Listener, val context: Context): RecyclerView.Adapter<ArticleAdapter.ArticleHolder>() {
-    private var PlaceList=ArrayList<Article>()
+    private var ArticleList=ArrayList<Article>()
 
     class ArticleHolder(item: View): RecyclerView.ViewHolder(item) {
         val binding = ArticleBinding.bind(item)
         @RequiresApi(Build.VERSION_CODES.Q)
         fun bind(article: Article, listener: Listener, context: Context) = with(binding){
-            //val adapterPager = PlacePhotoAdapter()
-            //adapterPager.addImage(article.image)
-            //image.adapter = adapterPager
+            val storageReference = FirebaseStorage.getInstance().getReference()
+            val imageReference = storageReference.child(article.image)
+
+            imageReference.downloadUrl.addOnSuccessListener { uri ->
+                // Загрузка изображения с использованием Picasso
+                Picasso.get().load(uri.toString()).into(textImage)
+            }
             textCardText.text = article.cardText
             textTitle.text = article.title
 
@@ -37,34 +46,34 @@ class ArticleAdapter(val listener: Listener, val context: Context): RecyclerView
 
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onBindViewHolder(holder: ArticleHolder, position: Int) {
-        holder.bind(PlaceList[position], listener, context)
+        holder.bind(ArticleList[position], listener, context)
     }
 
     override fun getItemCount(): Int {
-        return PlaceList.size
+        return ArticleList.size
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun createElement(partner: Article){
-        PlaceList.add(partner)
+    fun createElement(article: Article){
+        ArticleList.add(article)
         notifyDataSetChanged()
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun createAll(partnerList: MutableList<Article>){
+    fun createAll(articleList: MutableList<Article>){
         deleter()
-        val partnerList2 = mutableListOf<Article>()
-        partnerList.forEach {
-            partnerList2.add(it)
+        val articleList2 = mutableListOf<Article>()
+        articleList.forEach {
+            articleList2.add(it)
         }
-        println(partnerList2)
-        PlaceList = partnerList2 as ArrayList<Article>
+        println(articleList2)
+        ArticleList = articleList2 as ArrayList<Article>
         notifyDataSetChanged()
     }
 
     @SuppressLint("NotifyDataSetChanged")
     fun deleter(){
-        PlaceList.removeAll(PlaceList.toSet())
+        ArticleList.removeAll(ArticleList.toSet())
     }
 
     interface Listener{

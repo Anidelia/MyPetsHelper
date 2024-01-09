@@ -1,4 +1,4 @@
-package com.example.mypethelper
+package com.example.mypethelper.DataClasses
 
 data class Article(val cardText: String,
                    val title: String,
